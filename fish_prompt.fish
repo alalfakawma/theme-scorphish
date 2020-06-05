@@ -157,12 +157,10 @@ function fish_prompt
 
   if test "$theme_display_pwd_on_second_line" != yes
     _prompt_pwd
-    printf '%s|' $gray
+    printf '%s]' $gray
   end
 
-  _prompt_versions $blue $gray $green $orange $red
-
-  printf '%s] ⚡️ %0.3fs' $gray (math $CMD_DURATION / 1000)
+  # _prompt_versions $blue $gray $green $orange $red
 
   if set -q SCORPHISH_GIT_INFO_ON_FIRST_LINE
     set theme_display_git_on_first_line
@@ -171,6 +169,8 @@ function fish_prompt
   if set -q theme_display_git_on_first_line
     _prompt_git $gray $normal $orange $red $yellow
   end
+
+  printf '  %0.3fs' $gray (math $CMD_DURATION / 1000)
 
   if test "$theme_display_pwd_on_second_line" = yes
     printf $gray'\n‹'
