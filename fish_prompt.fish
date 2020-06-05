@@ -170,7 +170,7 @@ function fish_prompt
     _prompt_git $gray $normal $orange $red $yellow
   end
 
-  # printf '  %0.3fs' $gray (math $CMD_DURATION / 1000)
+  printf '  %0.3fs' (math $CMD_DURATION / 1000)
 
   if test "$theme_display_pwd_on_second_line" = yes
     printf $gray'\n‹'
